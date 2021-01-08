@@ -22,9 +22,8 @@
         }
         function checkPhone() {
             var phone = document.getElementById('inputPhone').value;
-            if (!(/^1[34578]\d{9}$/.test(phone))) {
+            if (!(/^0[9]\d{8}$/.test(phone))) {
                 return document.getElementById('uidt').innerHTML = '請輸入正確的手機號';
-                return false;
             } else { return document.getElementById('uidt').innerHTML = 'ok'; }
         }
         function reserver(name, phone, mail, isOk) {
