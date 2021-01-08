@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>新竹保時捷都會概念店Taycan首展</title>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function reserver(name, phone, mail, isOk) {
+            if (name == '' || phone == '' || mail == '') {
+                alert('所有欄位都要填寫');
+                return;
+            }
+            else if (isOk !== 'ok') {
+                alert('請閱讀並同意服務條款');
+                return;
+            }
+            var textMail = "客人賞車資料如下：</br>";
+            textMail += "預約人：" + name + "</br>";
+            textMail += "電話：" + phone + "</br>";
+            textMail += "E-mail:" + mail;
+            Email.send({
+                SecureToken: "a62e1877-faef-4507-9207-490a577e46a5",
+                To: 'mika.hsu@porsche-hsinchu.tw',
+                From: "新竹保時捷<zweig.deng@porsche-hsinchu.tw>",
+                Subject: "大魯閣賞車活動：" + name,
+                Body: textMail,
+            });
+            $('.beforeResver').addClass('addHide');
+            $('.afterResver').addClass('addCover');
+        }
+
+        $(document).ready(function () {
+            $('#btnReserver').click(function (e) {
+                reserver($('#inputName').val(), $('#inputPhone').val(), $('#inputMail').val(), $('input[name=okOption]:checked').val());
+            });
+            $('#aginFrom').click(function (e) {
+                $('.beforeResver').removeClass('addHide');
+                $('.afterResver').removeClass('addCover');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- nav -->
+    <section class="header">
+        <img src="assets/images/IMG_0789.PNG" alt="">
+    </section>
+    <!-- 表單 -->
+    <section class="py-5 bg1">
+        <!-- 表單內容 -->
+        <div class="row mb-3 beforeResver">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="d-flex flex-column formHolder">
+                    <h1></h1>
+                    <input type="text" placeholder="您的大名" class="mb-3" id="inputName">
+                    <input type="text" placeholder="您的電話" class="mb-3" id="inputPhone">
+                    <input type="text" placeholder="您的信箱" class="mb-3" id="inputMail">
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <input type="checkbox" value="ok" id="checkOk" class="m-0" name="okOption">
+                        <p class="m-0 ml-2">同意<a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="text-primary">服務條款</a></p>
+                    </div>
+                    <button id="btnReserver">提交</button>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <!-- 提交成功後 -->
+        <div class="afterResver">
+            <h3 class="p-3 mb-3 text-center">已成功填寫賞車表單，將有專人與您聯繫！</h3>
+            <div class="wrapper d-flex flex-column align-items-center mb-5">
+                <div class="d-flex mb-2 flex-nowrap">
+                    <div class="button fb">
+                        <div class="icon">
+                            <a href="https://www.facebook.com/PorscheHsinchu" class="text-dark"><i
+                                    class="fab fa-facebook"></i></a>
+                        </div>
+                        <span>Facebook</span>
+                    </div>
+                    <div class="button ig">
+                        <div class="icon">
+                            <a href="https://www.instagram.com/porschestudiohsinchu/" class="text-dark"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                        <span>Instagram</span>
+                    </div>
+                </div>
+                <div class="mobileFlix">
+                    <div class="button apple">
+                        <div class="icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <span>036565656</span>
+                    </div>
+                    <div class="button phone">
+                        <div class="icon">
+                            <a id="aginFrom"><i class="far fa-envelope"></i></a>
+                        </div>
+                        <span>重填表單</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flexClear mb-5">
+
+        </div>
+        <p class="footer text-center">Copyright © 2021 Porsche Studio Hsinchu</p>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">個資保護聲明及蒐集處理利用同意書</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p>本人同意智華汽車股份有限公司及台灣保時捷車業股份有限公司為保護本人的個人資料，依據個人資料保護法規定，於下列目的範圍內，得直接或間接蒐集，處理及利用本人個人資料：</p>
+                    <ol>
+                        <li class="mb-2">
+                            蒐集目的：基於行銷、及提供客戶服務及管理（包括以本人所提供之個人資料確認本人的身分、與本人進行聯絡、提供上開公司及關係企業或合作伙伴相關之服務及資訊、電話訪問、統計分析等），於必要範圍內蒐集、處理、利用及國際傳遞。
+                        </li>
+                        <li class="mb-2">個人資料類別：提供之個人資料，包括姓名、聯絡方式、E-mail或其他得以直接或間接識別本人個人之資料。</li>
+                        <li class="mb-2">使用期間、地區、對象、方式：
+                            <ul>
+                                <li>期間：上開公司存續期間或依法令之資料保存期間。</li>
+                                <li>地區：上開公司營運地區及海外地區。</li>
+                                <li>對象：智華汽車股份有限公司、其母公司、關係企業或擁有一定比例以上股份之其他公司及其他有業務往來合作機構。</li>
+                                <li>方式：以電話、簡訊、電子郵件、紙本或其他適當方式。</li>
+                            </ul>
+                        </li>
+                        <li>本人對於上開公司保有之個人資料，日後經適當說明後，得進行查詢、請求閱覽、製給複製本、補充或更正、請停止蒐集、處理或利用，以及刪除本人之個人資料，查詢、請求閱覽及製給複製本，將酌收必要成本費用，惟如因本人請求上述作為所造成之權益受損，上開公司不需負損害賠償責任。
+                        </li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">我已詳細閱讀</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
