@@ -14,6 +14,13 @@
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
+        function checkPhone() {
+            var phone = document.getElementById('inputPhone').value;
+            if (!(/^1[34578]\d{9}$/.test(phone))) {
+                return document.getElementById('uidt').innerHTML = '請輸入正確的手機號';
+                return false;
+            } else { return document.getElementById('uidt').innerHTML = 'ok'; }
+        }
         function reserver(name, phone, mail, isOk) {
             if (name == '' || phone == '' || mail == '') {
                 alert('所有欄位都要填寫');
@@ -64,7 +71,8 @@
                 <div class="d-flex flex-column formHolder">
                     <h1></h1>
                     <input type="text" placeholder="您的大名" class="mb-3" id="inputName">
-                    <input type="text" placeholder="您的電話" class="mb-3" id="inputPhone">
+                    <input type="number" placeholder="您的電話" class="mb-3" id="inputPhone" onblur="checkPhone()">
+                    <span id="uidt" style="margin-left: 100px"></span>
                     <input type="text" placeholder="您的信箱" class="mb-3" id="inputMail">
                     <div class="d-flex justify-content-center align-items-center mb-3">
                         <input type="checkbox" value="ok" id="checkOk" class="m-0" name="okOption">
