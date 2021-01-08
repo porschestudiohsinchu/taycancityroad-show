@@ -1,0 +1,59 @@
+.bg1{
+    background-image: url("../../images/IMG_0787.PNG");
+    background-position: center center;
+    background-size: cover;
+    height: 100vm;
+    width: 100%;
+}
+
+.h5Hold{
+    background: rgba(220,220,220, .5);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.1)
+    ,0 2px 2px 0 rgba(0,0,0, 0.1);
+    color:#000;
+}
+.formHolder{
+    width: 100%;
+    padding: 20px;
+    background: rgba(220,220,220, .5);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.1)
+    ,0 2px 2px 0 rgba(0,0,0, 0.1);
+}
+.formHolder input {
+    background: rgba(240,240,240, .5);
+    border: none;
+    padding: 15px;
+    outline: none;
+    border-radius:40px;
+    color:#555;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.1)
+    ,0 2px 2px 0 rgba(0,0,0, 0.1);
+}
+.formHolder button{
+    background: #2E2E3A;
+    border: none;
+    padding: 15px;
+    outline: none;
+    border-radius:40px;
+    color:#fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.1)
+    ,0 2px 2px 0 rgba(0,0,0, 0.1);
+}
+.formHolder button:hover{
+    opacity: .8;
+}
+
+.afterResver{
+    display:none;
+}
+.addCover{
+    display: block;
+}
+.addHide{
+    display: none;
+}
+.flexClear{
+    clear: both;
+}
+
