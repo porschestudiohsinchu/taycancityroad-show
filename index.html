@@ -18,13 +18,13 @@
             if (strEmail.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/) != -1)
                 return true;
             else
-                alert("Email格式錯誤");
+             return document.getElementById('uide').innerHTML = '請輸入正確的E-mail格式';
         }
         function checkPhone() {
             var phone = document.getElementById('inputPhone').value;
             if (!(/^0[9]\d{8}$/.test(phone))) {
                 return document.getElementById('uidt').innerHTML = '請輸入正確的手機號';
-            } else { return document.getElementById('uidt').innerHTML = 'ok'; }
+            } else { return document.getElementById('uidt').innerHTML = ''; }
         }
         function reserver(name, phone, mail, isOk) {
             if (name == '' || phone == '' || mail == '') {
@@ -79,6 +79,7 @@
                     <input type="number" placeholder="您的電話" class="mb-3" id="inputPhone" onblur=checkPhone()>
                     <span id="uidt" class="text-danger mb-3 ml-3"></span>
                     <input type="text" placeholder="您的信箱" class="mb-3" id="inputMail" onblur=isEmail(this.value)>
+                    <span id="uide" class="text-danger mb-3 ml-3"></span>
                     <div class="d-flex justify-content-center align-items-center mb-3">
                         <input type="checkbox" value="ok" id="checkOk" class="m-0" name="okOption">
                         <p class="m-0 ml-2">同意<a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
